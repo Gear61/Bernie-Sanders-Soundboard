@@ -5,17 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
-import com.joanzapata.iconify.widget.IconTextView;
+import com.randomappsinc.berniesanderssoundboard.Models.SoundbiteViewHolder;
 import com.randomappsinc.berniesanderssoundboard.R;
-import com.randomappsinc.berniesanderssoundboard.Utils.PreferencesManager;
 import com.randomappsinc.berniesanderssoundboard.Utils.SoundbiteManager;
 
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Alex Chiou on 11/17/15.
@@ -48,15 +43,6 @@ public class SoundbitesAdapter extends BaseAdapter {
         return 0;
     }
 
-    public static class SoundbiteViewHolder {
-        @Bind(R.id.soundbite_name) TextView soundbiteName;
-        @Bind(R.id.favorite_icon) IconTextView favoriteIcon;
-
-        public SoundbiteViewHolder(View view) {
-            ButterKnife.bind(this, view);
-        }
-    }
-
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         SoundbiteViewHolder holder;
@@ -69,15 +55,8 @@ public class SoundbitesAdapter extends BaseAdapter {
         else {
             holder = (SoundbiteViewHolder) view.getTag();
         }
-
         holder.soundbiteName.setText(soundbites.get(position));
-        if (PreferencesManager.get().isSoundbiteFavorited(soundbites.get(position))) {
-            holder.favoriteIcon.setTextColor(yellow);
-        }
-        else {
-            holder.favoriteIcon.setTextColor(darkGray);
-        }
-
+        holder.toggleFavoriteIcon();
         return view;
     }
 }
