@@ -5,34 +5,32 @@
     app:mrl_rippleColor="@color/america_red"
     app:mrl_rippleDelayClick="false"
     app:mrl_rippleInAdapter="true"
-    app:mrl_rippleDuration="@integer/shorter_anim_length"
+    app:mrl_rippleDuration="@integer/default_anim_length"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.joanzapata.iconify.widget.IconTextView
-            android:id="@+id/item_icon"
+            android:id="@+id/favorite_icon"
+            android:text="@string/star_icon"
+            android:layout_alignParentRight="true"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:textColor="@color/dark_gray"
-            android:textSize="22sp"
-            android:layout_gravity="center_vertical"/>
+            android:padding="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textSize="30dp" />
 
         <TextView
-            android:id="@+id/item_name"
+            android:id="@+id/soundbite_name"
+            android:layout_toLeftOf="@+id/favorite_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceListItemSmall"
-            android:gravity="center_vertical"
+            android:textSize="24dp"
             android:paddingLeft="10dp"
             android:textColor="@color/dark_gray"
-            android:minHeight="?android:attr/listPreferredItemHeightSmall"
-            android:layout_gravity="center_vertical"/>
-    </LinearLayout>
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 </com.balysv.materialripple.MaterialRippleLayout>

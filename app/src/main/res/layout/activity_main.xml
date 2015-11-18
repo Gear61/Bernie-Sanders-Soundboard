@@ -29,6 +29,7 @@
                 android:imeOptions="actionDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/dark_gray"
                 android:textSize="18dp"/>
 
             <com.joanzapata.iconify.widget.IconTextView
@@ -42,5 +43,12 @@
                 android:text="@string/clear_icon"
                 android:textColor="@color/app_blue"/>
         </FrameLayout>
+
+        <ListView
+            android:id="@+id/soundbites"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

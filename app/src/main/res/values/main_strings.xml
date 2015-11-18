@@ -5,4 +5,5 @@
 
     <!-- Font Awesome icons -->
     <string name="clear_icon">{fa-remove}</string>
+    <string name="star_icon">{fa-star}</string>
 </resources>

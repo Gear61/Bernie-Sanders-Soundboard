@@ -6,9 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
+import com.randomappsinc.berniesanderssoundboard.Adapters.SoundbitesAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
 
 import butterknife.Bind;
@@ -17,12 +19,18 @@ import butterknife.OnClick;
 
 public class MainActivity extends StandardActivity {
     @Bind(R.id.search_input) EditText searchInput;
+    @Bind(R.id.soundbites) ListView soundbites;
+
+    private SoundbitesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        adapter = new SoundbitesAdapter(this);
+        soundbites.setAdapter(adapter);
     }
 
     @OnClick(R.id.clear_search)

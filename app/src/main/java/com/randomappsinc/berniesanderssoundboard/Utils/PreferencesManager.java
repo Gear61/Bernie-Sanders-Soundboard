@@ -44,7 +44,7 @@ public class PreferencesManager {
         return prefs.getStringSet(FAVORITED_KEY, new HashSet<String>());
     }
 
-    public boolean hasFavoritedSoundbite(String soundbite) {
+    public boolean isSoundbiteFavorited(String soundbite) {
         return getFavorites().contains(soundbite);
     }
 
