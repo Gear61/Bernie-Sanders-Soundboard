@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bernie Sanders Soundboard</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+
+    <!-- Font Awesome icons -->
+    <string name="clear_icon">{fa-remove}</string>
+</resources>
