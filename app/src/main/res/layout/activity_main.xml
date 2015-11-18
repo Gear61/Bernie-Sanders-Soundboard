@@ -18,6 +18,7 @@
 
             <EditText
                 android:id="@+id/search_input"
+                android:textCursorDrawable="@drawable/blue_edittext_cursor"
                 android:background="@drawable/text_input_border"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
@@ -31,7 +32,7 @@
                 android:textSize="18dp"/>
 
             <com.joanzapata.iconify.widget.IconTextView
-                android:id="@+id/email_state"
+                android:id="@+id/clear_search"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:textSize="18dp"

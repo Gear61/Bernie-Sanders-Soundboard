@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="send_feedback">Send feedback</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="source_code">Source code</string>
+    <string-array name="settings_options">
+        <item>@string/send_feedback</item>
+        <item>@string/rate_this_app</item>
+        <item>@string/source_code</item>
+    </string-array>
+    <string name="play_store_error">Unable to open the Play Store.</string>
+    <string name="feedback_subject">Bernie Sanders Soundboard Feedback</string>
+    <string name="send_email">Send email</string>
+
+    <!-- Font Awesome Icons -->
+    <string name="email_icon">{fa-envelope}</string>
+    <string name="rate_icon">{fa-thumbs-up}</string>
+    <string name="github_icon">{fa-github}</string>
+    <string-array name="settings_icons">
+        <item>@string/email_icon</item>
+        <item>@string/rate_icon</item>
+        <item>@string/github_icon</item>
+    </string-array>
+</resources>
