@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public class PreferencesManager {
     private static final String FAVORITED_KEY = "favorited";
+    private static final String FIRST_TIME_USER = "firstTimeUser";
 
     private SharedPreferences prefs;
     private static PreferencesManager instance;
@@ -58,5 +59,13 @@ public class PreferencesManager {
         Set<String> favorites = getFavoritedSoundbites();
         favorites.remove(soundbite);
         setFavoritedSoundbites(favorites);
+    }
+
+    public boolean isFirstTimeUser() {
+        return prefs.getBoolean(FIRST_TIME_USER, true);
+    }
+
+    public void rememberWelcome() {
+        prefs.edit().putBoolean(FIRST_TIME_USER, false).apply();
     }
 }

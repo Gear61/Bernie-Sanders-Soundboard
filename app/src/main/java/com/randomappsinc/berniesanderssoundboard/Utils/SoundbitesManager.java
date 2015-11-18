@@ -1,37 +1,50 @@
 package com.randomappsinc.berniesanderssoundboard.Utils;
 
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Alex Chiou on 11/17/15.
  */
-public class SoundbiteManager {
-    private List<String> soundbites;
-    private static SoundbiteManager instance;
+public class SoundbitesManager {
+    public static final String SOUNDBITES_PATH = "Soundbites";
 
-    public static SoundbiteManager get() {
+    private List<String> soundbites;
+    private MediaPlayer player;
+    private Context context;
+    private static SoundbitesManager instance;
+
+    public static SoundbitesManager get() {
         if (instance == null) {
             instance = getSync();
         }
         return instance;
     }
 
-    private static synchronized SoundbiteManager getSync() {
+    private static synchronized SoundbitesManager getSync() {
         if (instance == null) {
-            instance = new SoundbiteManager();
+            instance = new SoundbitesManager();
         }
         return instance;
     }
 
-    private SoundbiteManager() {
+    private SoundbitesManager() {
+        this.context = MyApplication.get().getApplicationContext();
         List<String> soundbites = new ArrayList<>();
-        soundbites.add("Healthcare");
-        soundbites.add("Free skoo");
-        soundbites.add("Break up the banks");
-        soundbites.add("When millions of people stand up and fight");
-        soundbites.add("Unusual political career");
+        try {
+            String[] files = context.getAssets().list(SOUNDBITES_PATH);
+            for (String file : files) {
+                soundbites.add(file.substring(0, file.length() - 4));
+            }
+        }
+        catch(IOException ignored) {}
         this.soundbites = soundbites;
+        this.player = new MediaPlayer();
     }
 
     public List<String> getAllSoundbites() {
@@ -73,6 +86,21 @@ public class SoundbiteManager {
                 }
                 return matches;
             }
+        }
+    }
+
+    public void playSoundbite(String soundbite) {
+        player.reset();
+        String filePath = SOUNDBITES_PATH + "/" + soundbite + ".mp3";
+        try {
+            AssetFileDescriptor fileDescriptor = context.getAssets().openFd(filePath);
+            player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+            player.prepare();
+            player.start();
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

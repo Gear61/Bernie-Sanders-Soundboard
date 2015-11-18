@@ -6,18 +6,23 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.randomappsinc.berniesanderssoundboard.Adapters.SoundbitesAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
+import com.randomappsinc.berniesanderssoundboard.Utils.PreferencesManager;
+import com.randomappsinc.berniesanderssoundboard.Utils.SoundbitesManager;
 import com.rey.material.widget.CheckBox;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends StandardActivity {
@@ -36,6 +41,15 @@ public class MainActivity extends StandardActivity {
 
         adapter = new SoundbitesAdapter(this, noSoundbites);
         soundbites.setAdapter(adapter);
+
+        if (PreferencesManager.get().isFirstTimeUser()) {
+            PreferencesManager.get().rememberWelcome();
+            new MaterialDialog.Builder(this)
+                    .title(R.string.welcome)
+                    .content(R.string.ask_for_help)
+                    .positiveText(android.R.string.yes)
+                    .show();
+        }
     }
 
     @OnClick(R.id.clear_search)
@@ -51,6 +65,11 @@ public class MainActivity extends StandardActivity {
     @OnTextChanged(value = R.id.search_input, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     public void afterTextChanged(Editable s) {
         adapter.filterSoundbites(s.toString(), favoritesToggle.isChecked());
+    }
+
+    @OnItemClick(R.id.soundbites)
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        SoundbitesManager.get().playSoundbite(adapter.getItem(position));
     }
 
     @Override

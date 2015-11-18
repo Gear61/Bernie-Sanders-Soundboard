@@ -23,6 +23,11 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/settings">
         </activity>
+        <activity
+            android:label="@string/soundbite_sources"
+            android:name=".Activities.SourcesActivity"
+            android:configChanges="orientation|screenSize">
+        </activity>
     </application>
 
 </manifest>

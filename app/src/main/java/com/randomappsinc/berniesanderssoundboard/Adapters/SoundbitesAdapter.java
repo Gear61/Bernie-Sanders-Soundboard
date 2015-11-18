@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.randomappsinc.berniesanderssoundboard.Models.SoundbiteViewHolder;
 import com.randomappsinc.berniesanderssoundboard.R;
-import com.randomappsinc.berniesanderssoundboard.Utils.SoundbiteManager;
+import com.randomappsinc.berniesanderssoundboard.Utils.SoundbitesManager;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class SoundbitesAdapter extends BaseAdapter {
 
     public SoundbitesAdapter(Context context, View noSoundbites) {
         this.context = context;
-        this.soundbites = SoundbiteManager.get().getAllSoundbites();
+        this.soundbites = SoundbitesManager.get().getAllSoundbites();
         this.noSoundbites = noSoundbites;
         toggleNoSoundbites();
     }
@@ -52,7 +52,7 @@ public class SoundbitesAdapter extends BaseAdapter {
     }
 
     public void filterSoundbites(String searchInput, boolean favoritesMode) {
-        soundbites = SoundbiteManager.get().getSoundbiteMatches(searchInput, favoritesMode);
+        soundbites = SoundbitesManager.get().getSoundbiteMatches(searchInput, favoritesMode);
         toggleNoSoundbites();
         notifyDataSetChanged();
     }

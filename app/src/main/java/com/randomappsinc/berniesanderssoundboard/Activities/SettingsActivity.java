@@ -44,18 +44,20 @@ public class SettingsActivity extends StandardActivity {
     }
 
     @OnItemClick(R.id.settings_options)
-    public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id)
-    {
+    public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id) {
         Intent intent = null;
         switch (position) {
             case 0:
+                intent = new Intent(this, SourcesActivity.class);
+                break;
+            case 1:
                 String uriText = "mailto:" + SUPPORT_EMAIL + "?subject=" + Uri.encode(feedbackSubject);
                 Uri mailUri = Uri.parse(uriText);
                 Intent sendIntent = new Intent(Intent.ACTION_SENDTO, mailUri);
                 sendIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(Intent.createChooser(sendIntent, sendEmail));
                 return;
-            case 1:
+            case 2:
                 Uri uri =  Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 if (!(getPackageManager().queryIntentActivities(intent, 0).size() > 0)) {
@@ -63,7 +65,7 @@ public class SettingsActivity extends StandardActivity {
                     return;
                 }
                 break;
-            case 2:
+            case 3:
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(REPO_URL));
                 break;
         }

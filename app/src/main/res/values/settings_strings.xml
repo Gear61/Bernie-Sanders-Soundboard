@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="soundbite_sources">Soundbite sources</string>
     <string name="send_feedback">Send feedback</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="source_code">Source code</string>
     <string-array name="settings_options">
+        <item>@string/soundbite_sources</item>
         <item>@string/send_feedback</item>
         <item>@string/rate_this_app</item>
         <item>@string/source_code</item>
@@ -13,10 +15,12 @@
     <string name="send_email">Send email</string>
 
     <!-- Font Awesome Icons -->
+    <string name="list_icon">{fa-list}</string>
     <string name="email_icon">{fa-envelope}</string>
     <string name="rate_icon">{fa-thumbs-up}</string>
     <string name="github_icon">{fa-github}</string>
     <string-array name="settings_icons">
+        <item>@string/list_icon</item>
         <item>@string/email_icon</item>
         <item>@string/rate_icon</item>
         <item>@string/github_icon</item>
