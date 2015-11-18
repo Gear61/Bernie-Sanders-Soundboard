@@ -7,7 +7,7 @@
         android:name=".Utils.MyApplication"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/BernieTheme" >
         <activity
             android:name=".Activities.MainActivity"
             android:configChanges="orientation|screenSize"
