@@ -16,16 +16,24 @@ import java.util.List;
  * Created by Alex Chiou on 11/17/15.
  */
 public class SoundbitesAdapter extends BaseAdapter {
-    private int yellow;
-    private int darkGray;
     private Context context;
     private List<String> soundbites;
+    private View noSoundbites;
 
-    public SoundbitesAdapter(Context context) {
+    public SoundbitesAdapter(Context context, View noSoundbites) {
         this.context = context;
         this.soundbites = SoundbiteManager.get().getAllSoundbites();
-        this.yellow = context.getResources().getColor(R.color.yellow);
-        this.darkGray = context.getResources().getColor(R.color.dark_gray);
+        this.noSoundbites = noSoundbites;
+        toggleNoSoundbites();
+    }
+
+    public void toggleNoSoundbites() {
+        if (soundbites.isEmpty()) {
+            noSoundbites.setVisibility(View.VISIBLE);
+        }
+        else {
+            noSoundbites.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -41,6 +49,12 @@ public class SoundbitesAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    public void filterSoundbites(String searchInput, boolean favoritesMode) {
+        soundbites = SoundbiteManager.get().getSoundbiteMatches(searchInput, favoritesMode);
+        toggleNoSoundbites();
+        notifyDataSetChanged();
     }
 
     @Override

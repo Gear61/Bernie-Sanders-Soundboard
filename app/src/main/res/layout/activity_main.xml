@@ -57,6 +57,16 @@
             app:cbd_strokeColor="@color/app_blue"
             app:cbd_tickColor="@color/white"/>
 
+        <TextView
+            android:id="@+id/no_soundbites"
+            android:text="@string/no_soundbites"
+            android:textColor="@color/dark_gray"
+            android:textSize="22sp"
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
         <ListView
             android:id="@+id/soundbites"
             android:layout_marginTop="5dp"

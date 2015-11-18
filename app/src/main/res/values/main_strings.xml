@@ -3,6 +3,7 @@
     <string name="settings">Settings</string>
     <string name="search">Search</string>
     <string name="favorites_only">Only show favorited soundbites</string>
+    <string name="no_soundbites">No soundbites to display</string>
 
     <!-- Font Awesome icons -->
     <string name="clear_icon">{fa-remove}</string>
