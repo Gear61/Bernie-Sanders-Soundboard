@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -43,6 +44,18 @@
                 android:text="@string/clear_icon"
                 android:textColor="@color/app_blue"/>
         </FrameLayout>
+
+        <com.rey.material.widget.CheckBox
+            android:id="@+id/favorites_toggle"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/favorites_only"
+            android:textColor="@color/app_blue"
+            app:cbd_animDuration="250"
+            app:cbd_strokeColor="@color/app_blue"
+            app:cbd_tickColor="@color/white"/>
 
         <ListView
             android:id="@+id/soundbites"

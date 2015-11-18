@@ -16,6 +16,7 @@ import com.randomappsinc.berniesanderssoundboard.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTextChanged;
 
 public class MainActivity extends StandardActivity {
     @Bind(R.id.search_input) EditText searchInput;
@@ -37,6 +38,8 @@ public class MainActivity extends StandardActivity {
     public void clearSearch(View view) {
         searchInput.setText("");
     }
+
+    @OnTextChanged
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

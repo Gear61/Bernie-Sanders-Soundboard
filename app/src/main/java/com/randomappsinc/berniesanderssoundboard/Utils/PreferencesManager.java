@@ -35,28 +35,28 @@ public class PreferencesManager {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    private void setFavorites(Set<String> favorites) {
+    private void setFavoritedSoundbites(Set<String> favorites) {
         prefs.edit().remove(FAVORITED_KEY).apply();
         prefs.edit().putStringSet(FAVORITED_KEY, favorites).apply();
     }
 
-    private Set<String> getFavorites() {
+    public Set<String> getFavoritedSoundbites() {
         return prefs.getStringSet(FAVORITED_KEY, new HashSet<String>());
     }
 
     public boolean isSoundbiteFavorited(String soundbite) {
-        return getFavorites().contains(soundbite);
+        return getFavoritedSoundbites().contains(soundbite);
     }
 
     public void favoriteSoundbite(String soundbite) {
-        Set<String> favorites = getFavorites();
+        Set<String> favorites = getFavoritedSoundbites();
         favorites.add(soundbite);
-        setFavorites(favorites);
+        setFavoritedSoundbites(favorites);
     }
 
     public void unfavoriteSoundbite(String soundbite) {
-        Set<String> favorites = getFavorites();
+        Set<String> favorites = getFavoritedSoundbites();
         favorites.remove(soundbite);
-        setFavorites(favorites);
+        setFavoritedSoundbites(favorites);
     }
 }
