@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="follow_bernie_card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPaddingTop">5dp</item>
+        <item name="contentPaddingBottom">5dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">5dp</item>
+    </style>
+
+    <style name="follow_bernie_icon">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="follow_bernie_title">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+</resources>

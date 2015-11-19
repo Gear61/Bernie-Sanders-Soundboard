@@ -2,41 +2,26 @@
 <resources>
     <string name="follow">Follow Bernie</string>
 
-    <string-array name="follow_titles">
-        <item>Official website</item>
-        <item>Reddit</item>
-        <item>Facebook</item>
-        <item>Twitter</item>
-        <item>YouTube</item>
-        <item>Google+</item>
-    </string-array>
+    <string name="official_website">Official website</string>
+    <string name="reddit">Reddit</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">YouTube</string>
+    <string name="google_plus">Google+</string>
 
-    <string-array name="follow_icons">
-        <item>{fa-globe}</item>
-        <item>{fa-reddit}</item>
-        <item>{fa-facebook-square}</item>
-        <item>{fa-twitter}</item>
-        <item>{fa-youtube-play}</item>
-        <item>{fa-google-plus}</item>
-    </string-array>
+    <string name="website_icon">{fa-globe}</string>
+    <string name="reddit_icon">{fa-reddit}</string>
+    <string name="facebook_icon">{fa-facebook-square}</string>
+    <string name="twitter_icon">{fa-twitter}</string>
+    <string name="youtube_icon">{fa-youtube-play}</string>
+    <string name="google_plus_icon">{fa-google-plus}</string>
 
-    <integer-array name="follow_icon_colors">
-        <item>@color/globe_blue</item>
-        <item>@color/dark_gray</item>
-        <item>@color/facebook_blue</item>
-        <item>@color/twitter_blue</item>
-        <item>@color/america_red</item>
-        <item>@color/america_red</item>
-    </integer-array>
-
-    <string-array name="follow_links">
-        <item>https://secure.berniesanders.com/</item>
-        <item>https://www.reddit.com/r/SandersForPresident/</item>
-        <item>https://www.facebook.com/berniesanders/?fref=ts</item>
-        <item>https://twitter.com/berniesanders?lang=en</item>
-        <item>https://www.youtube.com/user/SenatorSanders/</item>
-        <item>https://plus.google.com/102227800261183349957/posts</item>
-    </string-array>
+    <string name="website_link">https://secure.berniesanders.com/</string>
+    <string name="reddit_link">https://www.reddit.com/r/SandersForPresident/</string>
+    <string name="facebook_link">https://www.facebook.com/berniesanders/?fref=ts</string>
+    <string name="twitter_link">https://twitter.com/berniesanders?lang=en</string>
+    <string name="youtube_link">https://www.youtube.com/user/SenatorSanders/</string>
+    <string name="google_plus_link">https://plus.google.com/102227800261183349957/posts</string>
 
     <string name="about_bernie_summary">Bernie Sanders is a candidate for President of the United States,
         vying for the Democratic Party’s nomination. His campaign is about a progressive agenda that

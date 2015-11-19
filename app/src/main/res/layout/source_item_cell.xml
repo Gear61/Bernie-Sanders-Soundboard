@@ -29,13 +29,12 @@
             <TextView
                 android:id="@+id/source_title"
                 android:textSize="20sp"
-                android:textColor="@color/dark_gray"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <ImageView
+            <com.randomappsinc.berniesanderssoundboard.Views.AspectRatioImageView
                 android:id="@+id/source_thumbnail"
-                android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
