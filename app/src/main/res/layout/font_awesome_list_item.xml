@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:mrl_rippleColor="@color/america_red"
-    app:mrl_rippleDelayClick="false"
+    app:mrl_rippleDelayClick="true"
     app:mrl_rippleInAdapter="true"
     app:mrl_rippleDuration="@integer/shorter_anim_length"
     android:layout_width="match_parent"

@@ -32,8 +32,9 @@ public class AboutBernieActivity extends StandardActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String summary = getString(R.string.about_bernie_summary);
+        String source = getString(R.string.source);
         String feelTheBernLink = "<a href=\\\"http://feelthebern.org/who-is-bernie-sanders/\\\">FeelTheBern.org</a>";
-        Spanned bernieSummaryFull = Html.fromHtml(summary + feelTheBernLink);
+        Spanned bernieSummaryFull = Html.fromHtml(summary + "<br><br>" + source + feelTheBernLink);
 
         aboutBernie.setText(bernieSummaryFull);
         links.setAdapter(new FollowAdapter(this));
