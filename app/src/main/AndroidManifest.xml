@@ -28,6 +28,11 @@
             android:name=".Activities.SourcesActivity"
             android:configChanges="orientation|screenSize">
         </activity>
+        <activity
+            android:label="@string/about_bernie"
+            android:name=".Activities.AboutBernieActivity"
+            android:configChanges="orientation|screenSize">
+        </activity>
     </application>
 
 </manifest>

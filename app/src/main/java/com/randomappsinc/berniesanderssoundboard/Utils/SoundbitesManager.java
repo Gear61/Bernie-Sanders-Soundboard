@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -54,6 +55,7 @@ public class SoundbitesManager {
     private List<String> getFavoritedSoundbites() {
         List<String> favoritedSoundbites = new ArrayList<>();
         favoritedSoundbites.addAll(PreferencesManager.get().getFavoritedSoundbites());
+        Collections.sort(favoritedSoundbites);
         return favoritedSoundbites;
     }
 
@@ -102,5 +104,9 @@ public class SoundbitesManager {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void silence() {
+        player.reset();
     }
 }

@@ -16,6 +16,4 @@ public class FormUtils {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
-
 }

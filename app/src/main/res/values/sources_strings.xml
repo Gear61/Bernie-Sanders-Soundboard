@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="president_we_need">https://www.youtube.com/watch?v=C7L9V7oGRv8</string>
-    <string name="in_180_seconds">https://www.youtube.com/watch?v=rtBVuye4fZQ</string>
-    <string name="establishment_does_not_want">https://www.youtube.com/watch?v=4uSY7vil0FA</string>
+    <string-array name="sources_titles">
+        <item>Bernie Sanders - The President We Need</item>
+        <item>In 180 Seconds You Will Be Voting For Bernie Sanders</item>
+        <item>The Establishment Doesn\'t Want You To See This</item>
+    </string-array>
+
+    <string-array name="sources_links">
+        <item>https://www.youtube.com/watch?v=C7L9V7oGRv8</item>
+        <item>https://www.youtube.com/watch?v=rtBVuye4fZQ</item>
+        <item>https://www.youtube.com/watch?v=4uSY7vil0FA</item>
+    </string-array>
 </resources>

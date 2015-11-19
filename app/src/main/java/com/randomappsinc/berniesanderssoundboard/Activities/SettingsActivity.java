@@ -48,16 +48,19 @@ public class SettingsActivity extends StandardActivity {
         Intent intent = null;
         switch (position) {
             case 0:
-                intent = new Intent(this, SourcesActivity.class);
+                intent = new Intent(this, AboutBernieActivity.class);
                 break;
             case 1:
+                intent = new Intent(this, SourcesActivity.class);
+                break;
+            case 2:
                 String uriText = "mailto:" + SUPPORT_EMAIL + "?subject=" + Uri.encode(feedbackSubject);
                 Uri mailUri = Uri.parse(uriText);
                 Intent sendIntent = new Intent(Intent.ACTION_SENDTO, mailUri);
                 sendIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(Intent.createChooser(sendIntent, sendEmail));
                 return;
-            case 2:
+            case 3:
                 Uri uri =  Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 if (!(getPackageManager().queryIntentActivities(intent, 0).size() > 0)) {
@@ -65,7 +68,7 @@ public class SettingsActivity extends StandardActivity {
                     return;
                 }
                 break;
-            case 3:
+            case 4:
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(REPO_URL));
                 break;
         }

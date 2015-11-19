@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="follow">Follow Bernie</string>
+
+    <string-array name="follow_titles">
+        <item>Official website</item>
+        <item>Reddit</item>
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>YouTube</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="follow_icons">
+        <item>{fa-globe}</item>
+        <item>{fa-reddit}</item>
+        <item>{fa-facebook-square}</item>
+        <item>{fa-twitter}</item>
+        <item>{fa-youtube-play}</item>
+        <item>{fa-google-plus}</item>
+    </string-array>
+
+    <integer-array name="follow_icon_colors">
+        <item>@color/globe_blue</item>
+        <item>@color/dark_gray</item>
+        <item>@color/facebook_blue</item>
+        <item>@color/twitter_blue</item>
+        <item>@color/america_red</item>
+        <item>@color/america_red</item>
+    </integer-array>
+
+    <string-array name="follow_links">
+        <item>https://secure.berniesanders.com/</item>
+        <item>https://www.reddit.com/r/SandersForPresident/</item>
+        <item>https://www.facebook.com/berniesanders/?fref=ts</item>
+        <item>https://twitter.com/berniesanders?lang=en</item>
+        <item>https://www.youtube.com/user/SenatorSanders/</item>
+        <item>https://plus.google.com/102227800261183349957/posts</item>
+    </string-array>
+
+    <string name="about_bernie_summary">Bernie Sanders is a candidate for President of the United States,
+        vying for the Democratic Party’s nomination. His campaign is about a progressive agenda that
+        — among other things — will create jobs, raise wages, protect the environment, provide health care for all,
+        increase access to higher education, reform our immigration and criminal justice systems,
+        reaffirm our civil rights, promote a more sensible foreign policy, and reduce the influence of money in politics.
+        Source:&#160;
+    </string>
+</resources>

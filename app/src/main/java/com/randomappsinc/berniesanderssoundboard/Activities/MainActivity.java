@@ -75,6 +75,10 @@ public class MainActivity extends StandardActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.silence).setIcon(
+                new IconDrawable(this, FontAwesomeIcons.fa_volume_off)
+                        .colorRes(R.color.white)
+                        .actionBarSize());
         menu.findItem(R.id.settings).setIcon(
                 new IconDrawable(this, FontAwesomeIcons.fa_gear)
                         .colorRes(R.color.white)
@@ -84,10 +88,15 @@ public class MainActivity extends StandardActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.settings) {
-            startActivity(new Intent(this, SettingsActivity.class));
-            return true;
+        switch (item.getItemId()) {
+            case R.id.silence:
+                SoundbitesManager.get().silence();
+                return true;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 }

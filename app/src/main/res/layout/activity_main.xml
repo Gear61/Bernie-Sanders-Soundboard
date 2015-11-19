@@ -37,7 +37,7 @@
                 android:id="@+id/clear_search"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:textSize="18dp"
+                android:textSize="22dp"
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:layout_gravity="center_vertical|right"
