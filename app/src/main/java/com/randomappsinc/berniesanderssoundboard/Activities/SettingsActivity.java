@@ -23,7 +23,7 @@ import butterknife.OnItemClick;
  */
 public class SettingsActivity extends StandardActivity {
     public static final String SUPPORT_EMAIL = "chessnone@gmail.com";
-    public static final String REPO_URL = "https://github.com/Gear61/Random-Name-Picker";
+    public static final String REPO_URL = "https://github.com/Gear61/Bernie-Sanders-Soundboard";
 
     @Bind(R.id.coordinator_layout) CoordinatorLayout parent;
     @Bind(R.id.settings_options) ListView settingsOptions;
