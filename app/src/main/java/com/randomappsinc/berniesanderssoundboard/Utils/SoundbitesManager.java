@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Alex Chiou on 11/17/15.
@@ -108,5 +109,11 @@ public class SoundbitesManager {
 
     public void silence() {
         player.reset();
+    }
+
+    public void playRandomSoundbite() {
+        Random random = new Random();
+        int soundbiteIndex = random.nextInt(soundbites.size());
+        playSoundbite(soundbites.get(soundbiteIndex));
     }
 }

@@ -3,14 +3,12 @@ package com.randomappsinc.berniesanderssoundboard.Activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.randomappsinc.berniesanderssoundboard.Adapters.FontAwesomeAdapter;
+import com.randomappsinc.berniesanderssoundboard.Adapters.SettingsAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
 
 import butterknife.Bind;
@@ -25,7 +23,7 @@ public class SettingsActivity extends StandardActivity {
     public static final String SUPPORT_EMAIL = "chessnone@gmail.com";
     public static final String REPO_URL = "https://github.com/Gear61/Bernie-Sanders-Soundboard";
 
-    @Bind(R.id.coordinator_layout) CoordinatorLayout parent;
+    @Bind(R.id.parent) View parent;
     @Bind(R.id.settings_options) ListView settingsOptions;
     @BindString(R.string.play_store_error) String playStoreError;
     @BindString(R.string.feedback_subject) String feedbackSubject;
@@ -38,9 +36,7 @@ public class SettingsActivity extends StandardActivity {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        settingsOptions.setAdapter(new FontAwesomeAdapter(this,
-                getResources().getStringArray(R.array.settings_options),
-                getResources().getStringArray(R.array.settings_icons)));
+        settingsOptions.setAdapter(new SettingsAdapter(this));
     }
 
     @OnItemClick(R.id.settings_options)
@@ -74,12 +70,5 @@ public class SettingsActivity extends StandardActivity {
         }
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.blank_menu, menu);
-        return true;
     }
 }

@@ -75,6 +75,10 @@ public class MainActivity extends StandardActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.random_soundbite).setIcon(
+                new IconDrawable(this, FontAwesomeIcons.fa_random)
+                        .colorRes(R.color.white)
+                        .actionBarSize());
         menu.findItem(R.id.silence).setIcon(
                 new IconDrawable(this, FontAwesomeIcons.fa_volume_off)
                         .colorRes(R.color.white)
@@ -89,6 +93,9 @@ public class MainActivity extends StandardActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.random_soundbite:
+                SoundbitesManager.get().playRandomSoundbite();
+                return true;
             case R.id.silence:
                 SoundbitesManager.get().silence();
                 return true;

@@ -12,8 +12,9 @@
         android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_gravity="center_horizontal"
                 android:id="@+id/profile_image"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/bernie_sanders"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/bernie_portrait"/>
