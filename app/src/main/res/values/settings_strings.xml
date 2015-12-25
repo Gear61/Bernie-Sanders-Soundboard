@@ -3,14 +3,16 @@
     <string name="about_bernie">About Bernie</string>
     <string name="soundbite_sources">Soundbite sources</string>
     <string name="send_feedback">Send feedback</string>
+    <string name="my_other_apps">My other apps</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="source_code">Source code</string>
     <string-array name="settings_options">
-        <item>About Bernie</item>
-        <item>Soundbite sources</item>
-        <item>Send feedback</item>
-        <item>Rate this app</item>
-        <item>Source code</item>
+        <item>@string/about_bernie</item>
+        <item>@string/soundbite_sources</item>
+        <item>@string/send_feedback</item>
+        <item>@string/my_other_apps</item>
+        <item>@string/rate_this_app</item>
+        <item>@string/source_code</item>
     </string-array>
     <string name="play_store_error">Unable to open the Play Store.</string>
     <string name="feedback_subject">Bernie Sanders Soundboard Feedback</string>
@@ -21,6 +23,7 @@
         <item>{fa-info-circle}</item>
         <item>{fa-list}</item>
         <item>{fa-envelope}</item>
+        <item>{fa-android}</item>
         <item>{fa-thumbs-up}</item>
         <item>{fa-github}</item>
     </string-array>
