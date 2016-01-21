@@ -1,7 +1,10 @@
 package com.randomappsinc.berniesanderssoundboard.Activities;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +26,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import butterknife.OnItemLongClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends StandardActivity {
@@ -70,6 +74,23 @@ public class MainActivity extends StandardActivity {
     @OnItemClick(R.id.soundbites)
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         SoundbitesManager.get().playSoundbite(adapter.getItem(position));
+    }
+
+    @OnItemLongClick(R.id.soundbites)
+    public boolean setNewTone(AdapterView<?> parent, View view, int position, long id) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.System.canWrite(this)) {
+                Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                intent.setData(Uri.parse("package:" + getPackageName()));
+                try {
+                    startActivity(intent);
+                }
+                catch (Exception e) {
+
+                }
+            }
+        }
+        return true;
     }
 
     @Override
