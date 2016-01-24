@@ -3,13 +3,13 @@ package com.randomappsinc.berniesanderssoundboard.Activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.randomappsinc.berniesanderssoundboard.Adapters.SettingsAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
+import com.randomappsinc.berniesanderssoundboard.Utils.FormUtils;
 
 import butterknife.Bind;
 import butterknife.BindString;
@@ -64,7 +64,7 @@ public class SettingsActivity extends StandardActivity {
                 Uri uri =  Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 if (!(getPackageManager().queryIntentActivities(intent, 0).size() > 0)) {
-                    Snackbar.make(parent, playStoreError, Snackbar.LENGTH_LONG).show();
+                    FormUtils.showSnackbar(parent, playStoreError);
                     return;
                 }
                 break;

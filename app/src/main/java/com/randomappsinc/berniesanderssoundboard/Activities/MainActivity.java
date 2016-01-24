@@ -1,10 +1,7 @@
 package com.randomappsinc.berniesanderssoundboard.Activities;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +15,7 @@ import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.randomappsinc.berniesanderssoundboard.Adapters.SoundbitesAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
+import com.randomappsinc.berniesanderssoundboard.Utils.FormUtils;
 import com.randomappsinc.berniesanderssoundboard.Utils.PreferencesManager;
 import com.randomappsinc.berniesanderssoundboard.Utils.SoundbitesManager;
 import com.rey.material.widget.CheckBox;
@@ -30,6 +28,7 @@ import butterknife.OnItemLongClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends StandardActivity {
+    @Bind(R.id.parent) View parent;
     @Bind(R.id.search_input) EditText searchInput;
     @Bind(R.id.soundbites) ListView soundbites;
     @Bind(R.id.no_soundbites) View noSoundbites;
@@ -50,7 +49,7 @@ public class MainActivity extends StandardActivity {
             PreferencesManager.get().rememberWelcome();
             new MaterialDialog.Builder(this)
                     .title(R.string.welcome)
-                    .content(R.string.ask_for_help)
+                    .content(R.string.intro_text)
                     .positiveText(android.R.string.yes)
                     .show();
         }
@@ -78,19 +77,33 @@ public class MainActivity extends StandardActivity {
 
     @OnItemLongClick(R.id.soundbites)
     public boolean setNewTone(AdapterView<?> parent, View view, int position, long id) {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.System.canWrite(this)) {
-                Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
-                intent.setData(Uri.parse("package:" + getPackageName()));
-                try {
-                    startActivity(intent);
-                }
-                catch (Exception e) {
-
-                }
-            }
-        }
+        final String soundbite = adapter.getItem(position);
+        new MaterialDialog.Builder(this)
+                .title(R.string.set_as)
+                .items(R.array.tone_types)
+                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                    @Override
+                    public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                        switch (which) {
+                            case 0:
+                                SoundbitesManager.get().setTone(soundbite, SoundbitesManager.RINGTONE_TYPE);
+                                showSnackbar(getString(R.string.ringtone_success));
+                                break;
+                            case 1:
+                                SoundbitesManager.get().setTone(soundbite, SoundbitesManager.NOTIFICATION_TONE_TYPE);
+                                showSnackbar(getString(R.string.notification_tone_success));
+                        }
+                        return true;
+                    }
+                })
+                .positiveText(android.R.string.yes)
+                .negativeText(android.R.string.no)
+                .show();
         return true;
+    }
+
+    public void showSnackbar(String message) {
+        FormUtils.showSnackbar(parent, message);
     }
 
     @Override

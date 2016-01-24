@@ -12,8 +12,22 @@
     <string name="star_icon">{fa-star}</string>
 
     <string name="welcome">Welcome</string>
-    <string name="ask_for_help">Hey there, I\'m Alex! I\'m always looking to make my work as awesome as possible
-        for the community, so if you have any ideas on how to improve this app (soundbite suggestions, bug fixes, feature requests),
-        please use the send feedback option in the settings to tell me! Thank you and feel the Bern!
+    <string name="intro_text">Hey there, I\'m Alex, and I developed this app!
+        Just wanted to let you know that in order to set a soundbite as your ringtone/notification tone,
+        you need to long click it.
+        Thank you for downloading this app and feel the Bern!
     </string>
+
+    <!-- Ringtone/notification tone settings -->
+    <string name="set_as">Set as&#8230;</string>
+    <string name="ringtone">Ringtone</string>
+    <string name="notification_tone">Notification tone</string>
+    <string-array name="tone_types">
+        <item>@string/ringtone</item>
+        <item>@string/notification_tone</item>
+    </string-array>
+    <string name="ringtone_success">Your ringtone was successfully set.</string>
+    <string name="notification_tone_success">Your notification tone was successfully set.</string>
+    <string name="external_fail">We failed to create a directory in external storage to store audio tone files.
+        Setting soundbites as your ringtone/notification tone will not work.</string>
 </resources>
