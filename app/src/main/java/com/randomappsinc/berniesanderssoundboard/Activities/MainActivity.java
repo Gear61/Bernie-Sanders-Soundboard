@@ -1,21 +1,30 @@
 package com.randomappsinc.berniesanderssoundboard.Activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.randomappsinc.berniesanderssoundboard.Adapters.SoundbitesAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
 import com.randomappsinc.berniesanderssoundboard.Utils.FormUtils;
+import com.randomappsinc.berniesanderssoundboard.Utils.MyApplication;
 import com.randomappsinc.berniesanderssoundboard.Utils.PreferencesManager;
 import com.randomappsinc.berniesanderssoundboard.Utils.SoundbitesManager;
 import com.rey.material.widget.CheckBox;
@@ -28,6 +37,8 @@ import butterknife.OnItemLongClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends StandardActivity {
+    public static final int WRITE_EXTERNAL_CODE = 1;
+
     @Bind(R.id.parent) View parent;
     @Bind(R.id.search_input) EditText searchInput;
     @Bind(R.id.soundbites) ListView soundbites;
@@ -56,12 +67,12 @@ public class MainActivity extends StandardActivity {
     }
 
     @OnClick(R.id.clear_search)
-    public void clearSearch(View view) {
+    public void clearSearch() {
         searchInput.setText("");
     }
 
     @OnClick(R.id.favorites_toggle)
-    public void toggleFavorites(View view) {
+    public void toggleFavorites() {
         adapter.filterSoundbites(searchInput.getText().toString(), favoritesToggle.isChecked());
     }
 
@@ -71,13 +82,70 @@ public class MainActivity extends StandardActivity {
     }
 
     @OnItemClick(R.id.soundbites)
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+    public void onItemClick(int position) {
         SoundbitesManager.get().playSoundbite(adapter.getItem(position));
     }
 
     @OnItemLongClick(R.id.soundbites)
-    public boolean setNewTone(AdapterView<?> parent, View view, int position, long id) {
-        final String soundbite = adapter.getItem(position);
+    public boolean setNewTone(int position) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.System.canWrite(this)) {
+            Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+            intent.setData(Uri.parse("package:" + getPackageName()));
+            startActivity(intent);
+        }
+        else if (!permissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            processMissingPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, WRITE_EXTERNAL_CODE);
+        }
+        else {
+            showToneDialog(adapter.getItem(position));
+        }
+        return true;
+    }
+
+    private boolean permissionGranted(String permission) {
+        int currentStatus = ContextCompat.checkSelfPermission(this, permission);
+        return currentStatus == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void processMissingPermission(final String permission, final int requestCode) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+            new MaterialDialog.Builder(this)
+                    .content(R.string.write_external_explanation)
+                    .positiveText(android.R.string.yes)
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            requestPermission(permission, requestCode);
+                        }
+                    })
+                    .show();
+        }
+        else {
+            requestPermission(permission, requestCode);
+        }
+    }
+
+    private void requestPermission(String permission, int requestCode) {
+        ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case WRITE_EXTERNAL_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    MyApplication.createExternalDirectory();
+                }
+                else {
+                    processMissingPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, WRITE_EXTERNAL_CODE);
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    private void showToneDialog(final String soundbite) {
         new MaterialDialog.Builder(this)
                 .title(R.string.set_as)
                 .items(R.array.tone_types)
@@ -99,7 +167,6 @@ public class MainActivity extends StandardActivity {
                 .positiveText(android.R.string.yes)
                 .negativeText(android.R.string.no)
                 .show();
-        return true;
     }
 
     public void showSnackbar(String message) {

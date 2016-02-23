@@ -3,8 +3,6 @@ package com.randomappsinc.berniesanderssoundboard.Activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.randomappsinc.berniesanderssoundboard.Adapters.SourcesAdapter;
@@ -31,7 +29,7 @@ public class SourcesActivity extends StandardActivity {
     }
 
     @OnItemClick(R.id.sources)
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+    public void onItemClick(int position) {
         String sourceUrl = getResources().getStringArray(R.array.sources_links)[position];
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(sourceUrl)));
     }

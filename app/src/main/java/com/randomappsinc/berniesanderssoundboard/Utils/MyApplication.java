@@ -1,11 +1,9 @@
 package com.randomappsinc.berniesanderssoundboard.Utils;
 
 import android.app.Application;
-import android.widget.Toast;
 
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-import com.randomappsinc.berniesanderssoundboard.R;
 
 import java.io.File;
 
@@ -19,13 +17,15 @@ public final class MyApplication extends Application {
         Iconify.with(new FontAwesomeModule());
         instance = this;
 
+        createExternalDirectory();
+    }
+
+    public static void createExternalDirectory() {
         // Create external storage directory if it doesn't exist
         if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
-            File Dir = new File(android.os.Environment.getExternalStorageDirectory(), "BernieSoundboard");
-            if (!Dir.exists()) {
-                if (!Dir.mkdirs()) {
-                    Toast.makeText(getApplicationContext(), R.string.external_fail, Toast.LENGTH_LONG).show();
-                }
+            File ourDirectory = new File(android.os.Environment.getExternalStorageDirectory(), "BernieSoundboard");
+            if (!ourDirectory.exists()) {
+                ourDirectory.mkdirs();
             }
         }
     }
