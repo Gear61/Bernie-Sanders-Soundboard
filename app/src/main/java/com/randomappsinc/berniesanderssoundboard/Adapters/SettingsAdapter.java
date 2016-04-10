@@ -55,7 +55,7 @@ public class SettingsAdapter extends BaseAdapter {
         SettingsViewHolder holder;
         if (view == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = vi.inflate(R.layout.font_awesome_list_item, parent, false);
+            view = vi.inflate(R.layout.settings_list_item, parent, false);
             holder = new SettingsViewHolder(view);
             view.setTag(holder);
         }

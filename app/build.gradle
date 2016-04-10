@@ -8,8 +8,9 @@ android {
         applicationId "com.randomappsinc.berniesanderssoundboard"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 141
-        versionName "1.4.1"
+        versionCode 142
+        versionName "1.4.2"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -22,15 +23,15 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.1.0'
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.1.1'
     compile 'com.balysv:material-ripple:1.0.2'
     compile 'com.github.rey5137:material:1.2.1'
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.5@aar') {
         transitive = true
     }
-    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.ms-square:expandableTextView:0.1.4'
 }
