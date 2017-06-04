@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:padding="10dp">
+        android:padding="12dp">
 
         <com.joanzapata.iconify.widget.IconTextView
             android:id="@+id/item_icon"
             android:gravity="center"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:textColor="@color/dark_gray"
             android:textSize="22dp"/>
 
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
             android:textColor="@color/dark_gray"
             android:textSize="18dp"/>
     </LinearLayout>

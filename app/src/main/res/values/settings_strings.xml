@@ -18,13 +18,19 @@
     <string name="feedback_subject">Bernie Sanders Soundboard Feedback</string>
     <string name="send_email">Send email</string>
 
-    <!-- Font Awesome Icons -->
+    <string name="info_icon">{ion-information-circled}</string>
+    <string name="list_icon">{ion-android-list}</string>
+    <string name="email_icon">{ion-email}</string>
+    <string name="android_icon">{ion-social-android}</string>
+    <string name="like_icon">{ion-thumbsup}</string>
+    <string name="github_icon">{ion-social-github}</string>
+
     <string-array name="settings_icons">
-        <item>{fa-info-circle}</item>
-        <item>{fa-list}</item>
-        <item>{fa-envelope}</item>
-        <item>{fa-android}</item>
-        <item>{fa-thumbs-up}</item>
-        <item>{fa-github}</item>
+        <item>@string/info_icon</item>
+        <item>@string/list_icon</item>
+        <item>@string/email_icon</item>
+        <item>@string/android_icon</item>
+        <item>@string/like_icon</item>
+        <item>@string/github_icon</item>
     </string-array>
 </resources>

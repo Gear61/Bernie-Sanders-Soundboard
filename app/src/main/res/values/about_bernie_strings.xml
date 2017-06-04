@@ -10,12 +10,12 @@
     <string name="youtube">YouTube</string>
     <string name="google_plus">Google+</string>
 
-    <string name="website_icon">{fa-globe}</string>
-    <string name="reddit_icon">{fa-reddit}</string>
-    <string name="facebook_icon">{fa-facebook-square}</string>
-    <string name="twitter_icon">{fa-twitter}</string>
-    <string name="youtube_icon">{fa-youtube-play}</string>
-    <string name="google_plus_icon">{fa-google-plus}</string>
+    <string name="website_icon">{ion-android-globe}</string>
+    <string name="reddit_icon">{ion-social-reddit-outline}</string>
+    <string name="facebook_icon">{ion-social-facebook}</string>
+    <string name="twitter_icon">{ion-social-twitter}</string>
+    <string name="youtube_icon">{ion-social-youtube}</string>
+    <string name="google_plus_icon">{ion-social-googleplus}</string>
 
     <string name="website_link">https://secure.berniesanders.com/</string>
     <string name="reddit_link">https://www.reddit.com/r/SandersForPresident/</string>
@@ -24,7 +24,8 @@
     <string name="youtube_link">https://www.youtube.com/user/SenatorSanders/</string>
     <string name="google_plus_link">https://plus.google.com/102227800261183349957/posts</string>
 
-    <string name="about_bernie_summary">Bernie Sanders is a candidate for President of the United States,
+    <string name="about_bernie_summary">
+        Bernie Sanders is a candidate for President of the United States,
         vying for the Democratic Party’s nomination. His campaign is about a progressive agenda that
         — among other things — will create jobs, raise wages, protect the environment, provide health care for all,
         increase access to higher education, reform our immigration and criminal justice systems,
