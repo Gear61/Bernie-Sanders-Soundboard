@@ -20,7 +20,7 @@ import android.widget.ListView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.joanzapata.iconify.IconDrawable;
-import com.joanzapata.iconify.fonts.FontAwesomeIcons;
+import com.joanzapata.iconify.fonts.IoniconsIcons;
 import com.randomappsinc.berniesanderssoundboard.Adapters.SoundbitesAdapter;
 import com.randomappsinc.berniesanderssoundboard.R;
 import com.randomappsinc.berniesanderssoundboard.Utils.FormUtils;
@@ -177,15 +177,15 @@ public class MainActivity extends StandardActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         menu.findItem(R.id.random_soundbite).setIcon(
-                new IconDrawable(this, FontAwesomeIcons.fa_random)
+                new IconDrawable(this, IoniconsIcons.ion_shuffle)
                         .colorRes(R.color.white)
                         .actionBarSize());
         menu.findItem(R.id.silence).setIcon(
-                new IconDrawable(this, FontAwesomeIcons.fa_volume_off)
+                new IconDrawable(this, IoniconsIcons.ion_android_volume_mute)
                         .colorRes(R.color.white)
                         .actionBarSize());
         menu.findItem(R.id.settings).setIcon(
-                new IconDrawable(this, FontAwesomeIcons.fa_gear)
+                new IconDrawable(this, IoniconsIcons.ion_android_settings)
                         .colorRes(R.color.white)
                         .actionBarSize());
         return true;

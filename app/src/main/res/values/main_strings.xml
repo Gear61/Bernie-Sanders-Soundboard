@@ -8,8 +8,8 @@
     <string name="no_soundbites">No soundbites to display</string>
 
     <!-- Font Awesome icons -->
-    <string name="clear_icon">{fa-remove}</string>
-    <string name="star_icon">{fa-star}</string>
+    <string name="clear_icon">{ion-android-close}</string>
+    <string name="star_icon">{ion-android-star}</string>
 
     <string name="welcome">Welcome</string>
     <string name="intro_text">Hey there, I\'m Alex, and I developed this app!
@@ -28,8 +28,10 @@
     </string-array>
     <string name="ringtone_success">Your ringtone was successfully set.</string>
     <string name="notification_tone_success">Your notification tone was successfully set.</string>
-    <string name="external_fail">We failed to create a directory in external storage to store audio tone files.
-        Setting soundbites as your ringtone/notification tone will not work.</string>
+    <string name="external_fail">
+        We failed to create a directory in external storage to store audio tone files.
+        Setting soundbites as your ringtone/notification tone will not work.
+    </string>
     <string name="write_external_explanation">
         In order to set your ringtone/notification tone,
         we need to be able to create sound files on your device\'s file system.

@@ -11,12 +11,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
         android:orientation="vertical">
 
         <FrameLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="8dp">
 
             <EditText
                 android:id="@+id/search_input"
@@ -36,10 +38,10 @@
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:id="@+id/clear_search"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:textSize="22dp"
-                android:layout_margin="5dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 android:layout_gravity="center_vertical|right"
                 android:text="@string/clear_icon"
@@ -48,9 +50,9 @@
 
         <com.rey.material.widget.CheckBox
             android:id="@+id/favorites_toggle"
-            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_marginLeft="4dp"
             android:gravity="center_vertical"
             android:text="@string/favorites_only"
             android:textColor="@color/app_blue"
@@ -63,7 +65,9 @@
             android:text="@string/no_soundbites"
             android:textColor="@color/dark_gray"
             android:textSize="22sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"/>
@@ -71,9 +75,8 @@
         <ListView
             android:id="@+id/soundbites"
             android:soundEffectsEnabled="false"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="4dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
